@@ -1,4 +1,4 @@
-use std::{cell::RefCell, clone, rc::Rc};
+use std::{cell::RefCell, clone, rc::{Rc, Weak}};
 
 #[derive(Debug, Clone)]
 struct Person{
@@ -28,4 +28,7 @@ fn main() {
     println!("the address of p is {:p} \n {:?}", &p, p);
     println!("the address of p2 is {:p} \n {:?}", &p2, p2);
     println!("the address of person is {:p} \n {:?}", &person, person);
+
+
+    let weak_person = Weak::new(Person {age: 2, name: String::from("weak")});
 }
